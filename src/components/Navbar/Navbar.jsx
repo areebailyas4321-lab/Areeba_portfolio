@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,114 +35,93 @@ const Navbar = () => {
     { id: "experience", label: "Experience" },
     { id: "work", label: "Projects" },
     { id: "education", label: "Education" },
+    { id: "contact", label: "Contact" },
   ];
 
   return (
-    <nav
-      className={`fixed top-0 w-full z-50 transition duration-300 px-[7vw] md:px-[7vw] lg:px-[20vw] ${
-        isScrolled ? "bg-[#050414] bg-opacity-50 backdrop-blur-md shadow-md" : "bg-transparent"
-      }`}
+    <motion.nav
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
+      className={`fixed top-0 w-full z-50 transition-all duration-300 px-[7vw] md:px-[7vw] lg:px-[20vw] ${isScrolled ? "bg-[#050414]/80 backdrop-blur-md shadow-lg py-4" : "bg-transparent py-6"
+        }`}
     >
-      <div className="text-white py-5 flex justify-between items-center">
+      <div className="text-white flex justify-between items-center">
         {/* Logo */}
-        <div className="text-lg font-semibold cursor-pointer">
+        <div className="text-2xl font-bold cursor-pointer font-mono" onClick={() => window.scrollTo(0, 0)}>
           <span className="text-[#8245ec]">&lt;</span>
-          <span className="text-white">Tarun</span>
+          <span className="text-white">Areeba</span>
           <span className="text-[#8245ec]">/</span>
-          <span className="text-white">Kaushik</span>
+          <span className="text-white">Ilyas</span>
           <span className="text-[#8245ec]">&gt;</span>
         </div>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-8 text-gray-300">
+        <ul className="hidden md:flex space-x-8 text-gray-300 font-medium">
           {menuItems.map((item) => (
-            <li
+            <motion.li
               key={item.id}
-              className={`cursor-pointer hover:text-[#8245ec] ${
-                activeSection === item.id ? "text-[#8245ec]" : ""
-              }`}
+              whileHover={{ scale: 1.1, color: "#8245ec" }}
+              className={`cursor-pointer transition-colors ${activeSection === item.id ? "text-[#8245ec]" : ""
+                }`}
             >
               <button onClick={() => handleMenuItemClick(item.id)}>
                 {item.label}
               </button>
-            </li>
+            </motion.li>
           ))}
         </ul>
 
         {/* Social Icons */}
         <div className="hidden md:flex space-x-4">
-          <a
-            href="https://github.com/codingmastr"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-300 hover:text-[#8245ec]"
-          >
+          <motion.a whileHover={{ y: -3, color: "#8245ec" }} href="https://github.com/areebailyas4321-lab" target="_blank" rel="noopener noreferrer" className="text-gray-300 transition-colors">
             <FaGithub size={24} />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/tarun-kaushik-553b441a4"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-300 hover:text-[#8245ec]"
-          >
-            <FaLinkedin size={24} />
-          </a>
+          </motion.a>
+
+
         </div>
 
         {/* Mobile Menu Icon */}
         <div className="md:hidden">
-          {isOpen ? (
-            <FiX
-              className="text-3xl text-[#8245ec] cursor-pointer"
-              onClick={() => setIsOpen(false)}
-            />
-          ) : (
-            <FiMenu
-              className="text-3xl text-[#8245ec] cursor-pointer"
-              onClick={() => setIsOpen(true)}
-            />
-          )}
+          <button onClick={() => setIsOpen(!isOpen)} className="text-3xl text-[#8245ec] focus:outline-none">
+            {isOpen ? <FiX /> : <FiMenu />}
+          </button>
         </div>
       </div>
 
       {/* Mobile Menu Items */}
-      {isOpen && (
-        <div className="absolute top-16 left-1/2 transform -translate-x-1/2 w-4/5 bg-[#050414] bg-opacity-50 backdrop-filter backdrop-blur-lg z-50 rounded-lg shadow-lg md:hidden">
-          <ul className="flex flex-col items-center space-y-4 py-4 text-gray-300">
-            {menuItems.map((item) => (
-              <li
-                key={item.id}
-                className={`cursor-pointer hover:text-white ${
-                  activeSection === item.id ? "text-[#8245ec]" : ""
-                }`}
-              >
-                <button onClick={() => handleMenuItemClick(item.id)}>
-                  {item.label}
-                </button>
-              </li>
-            ))}
-            <div className="flex space-x-4">
-              <a
-                href="https://github.com/codingmastr"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-white"
-              >
-                <FaGithub size={24} />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/tarun-kaushik-553b441a4"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-white"
-              >
-                <FaLinkedin size={24} />
-              </a>
-            </div>
-          </ul>
-        </div>
-      )}
-    </nav>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden bg-[#050414]/95 backdrop-blur-xl overflow-hidden rounded-b-2xl border-t border-gray-800 mt-4"
+          >
+            <ul className="flex flex-col items-center space-y-6 py-8 text-gray-300">
+              {menuItems.map((item) => (
+                <motion.li
+                  key={item.id}
+                  whileTap={{ scale: 0.95 }}
+                  className={`cursor-pointer text-lg font-medium ${activeSection === item.id ? "text-[#8245ec]" : ""
+                    }`}
+                >
+                  <button onClick={() => handleMenuItemClick(item.id)}>
+                    {item.label}
+                  </button>
+                </motion.li>
+              ))}
+              <div className="flex space-x-6 pt-4">
+                <a href="https://github.com/areebailyas4321-lab" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#8245ec]">
+                  <FaGithub size={28} />
+                </a>
+
+              </div>
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.nav>
   );
 };
 

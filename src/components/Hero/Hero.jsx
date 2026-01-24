@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import ReactTypingEffect from 'react-typing-effect';
 import Tilt from 'react-parallax-tilt';
-import { FaGithub, FaWhatsapp } from 'react-icons/fa';
+import { FaGithub, FaWhatsapp, FaLinkedin } from 'react-icons/fa';
 import profileImage from '../../assets/profile-img.jpg';
 
 const Hero = () => {
@@ -18,7 +18,7 @@ const Hero = () => {
                         initial={{ opacity: 0, y: -50 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-                        className="text-2xl font-bold text-white mb-2"
+                        className="text-2xl font-bold text-gray-900 dark:text-white mb-2"
                     >
                         Hello It&apos;s Me
                     </motion.h3>
@@ -36,7 +36,7 @@ const Hero = () => {
                         initial={{ opacity: 0, x: -100 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
-                        className="text-xl sm:text-2xl md:text-3xl font-semibold text-white mb-8"
+                        className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white mb-8"
                     >
                         <ReactTypingEffect
                             text={[
@@ -55,7 +55,7 @@ const Hero = () => {
                         initial={{ opacity: 0, x: 100 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut", delay: 0.8 }}
-                        className="text-gray-300 text-lg mb-8 max-w-lg leading-relaxed"
+                        className="text-gray-600 dark:text-gray-300 text-lg mb-8 max-w-lg leading-relaxed"
                     >
                         Focused on innovation, problem-solving, and real-world application of technology — always learning, building, and improving.
                     </motion.p>
@@ -64,23 +64,31 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut", delay: 1.0 }}
-                        className="flex gap-4"
+                        className="flex flex-wrap gap-4 justify-center md:justify-start"
                     >
                         <a
                             href="https://wa.me/923145386818"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-full text-lg font-bold transition duration-300 transform hover:scale-105 shadow-lg"
+                            className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-full text-base sm:text-lg font-bold transition duration-300 transform hover:scale-105 shadow-lg w-full sm:w-auto justify-center"
                         >
-                            <FaWhatsapp size={24} /> WhatsApp
+                            <FaWhatsapp size={20} /> WhatsApp
                         </a>
                         <a
                             href="https://github.com/areebailyas4321-lab"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-white py-3 px-6 rounded-full text-lg font-bold transition duration-300 transform hover:scale-105 shadow-lg"
+                            className="flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-white py-3 px-6 rounded-full text-base sm:text-lg font-bold transition duration-300 transform hover:scale-105 shadow-lg w-full sm:w-auto justify-center"
                         >
-                            <FaGithub size={24} /> GitHub
+                            <FaGithub size={20} /> GitHub
+                        </a>
+                        <a
+                            href="https://www.linkedin.com/in/areeba-ilyas-3037853a7/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 bg-[#0077b5] hover:bg-[#005582] text-white py-3 px-6 rounded-full text-base sm:text-lg font-bold transition duration-300 transform hover:scale-105 shadow-lg w-full sm:w-auto justify-center"
+                        >
+                            <FaLinkedin size={20} /> LinkedIn
                         </a>
                     </motion.div>
                 </div>

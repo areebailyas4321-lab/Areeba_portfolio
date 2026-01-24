@@ -1,12 +1,27 @@
 import { useState, useEffect } from "react";
-import { FiMenu, FiX } from "react-icons/fi";
-import { FaGithub } from "react-icons/fa";
+import { FiMenu, FiX, FiSun, FiMoon } from "react-icons/fi";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { useTheme } from "../../contexts/ThemeContext";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const [isScrolled, setIsScrolled] = useState(false);
+
+  const ThemeToggle = () => {
+    const { theme, toggleTheme } = useTheme();
+    return (
+      <motion.button
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        onClick={toggleTheme}
+        className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-yellow-500 dark:text-yellow-400 transition-colors"
+      >
+        {theme === 'dark' ? <FiMoon size={20} /> : <FiSun size={20} />}
+      </motion.button>
+    );
+  };
 
   // Detect scroll and change navbar background
   useEffect(() => {
@@ -43,10 +58,12 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed top-0 w-full z-50 transition-all duration-300 px-[7vw] md:px-[7vw] lg:px-[20vw] ${isScrolled ? "bg-[#050414]/80 backdrop-blur-md shadow-lg py-4" : "bg-transparent py-6"
+      className={`fixed top-0 w-full z-50 transition-all duration-300 px-[7vw] md:px-[7vw] lg:px-[20vw] ${isScrolled
+        ? "bg-white/80 dark:bg-[#050414]/80 backdrop-blur-md shadow-md dark:shadow-lg py-4"
+        : "bg-transparent py-6"
         }`}
     >
-      <div className="text-white flex justify-between items-center">
+      <div className="flex justify-between items-center">
         {/* Logo */}
         <div className="text-2xl font-bold cursor-pointer font-mono" onClick={() => window.scrollTo(0, 0)}>
           <span className="text-[#8245ec]">&lt;</span>
@@ -57,7 +74,7 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-8 text-gray-300 font-medium">
+        <ul className="hidden md:flex space-x-8 text-gray-700 dark:text-gray-300 font-medium items-center">
           {menuItems.map((item) => (
             <motion.li
               key={item.id}
@@ -72,13 +89,15 @@ const Navbar = () => {
           ))}
         </ul>
 
-        {/* Social Icons */}
-        <div className="hidden md:flex space-x-4">
-          <motion.a whileHover={{ y: -3, color: "#8245ec" }} href="https://github.com/areebailyas4321-lab" target="_blank" rel="noopener noreferrer" className="text-gray-300 transition-colors">
+        {/* Social Icons & Theme Toggle */}
+        <div className="hidden md:flex space-x-4 items-center">
+          <ThemeToggle />
+          <motion.a whileHover={{ y: -3, color: "#8245ec" }} href="https://github.com/areebailyas4321-lab" target="_blank" rel="noopener noreferrer" className="text-gray-700 dark:text-gray-300 transition-colors">
             <FaGithub size={24} />
           </motion.a>
-
-
+          <motion.a whileHover={{ y: -3, color: "#0077b5" }} href="https://www.linkedin.com/in/areeba-ilyas-3037853a7/" target="_blank" rel="noopener noreferrer" className="text-gray-700 dark:text-gray-300 transition-colors">
+            <FaLinkedin size={24} />
+          </motion.a>
         </div>
 
         {/* Mobile Menu Icon */}
@@ -96,9 +115,9 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-[#050414]/95 backdrop-blur-xl overflow-hidden rounded-b-2xl border-t border-gray-800 mt-4"
+            className="md:hidden bg-white/95 dark:bg-[#050414]/95 backdrop-blur-xl overflow-hidden rounded-b-2xl border-t border-gray-200 dark:border-gray-800 mt-4 shadow-xl"
           >
-            <ul className="flex flex-col items-center space-y-6 py-8 text-gray-300">
+            <ul className="flex flex-col items-center space-y-6 py-8 text-gray-700 dark:text-gray-300">
               {menuItems.map((item) => (
                 <motion.li
                   key={item.id}
@@ -111,11 +130,14 @@ const Navbar = () => {
                   </button>
                 </motion.li>
               ))}
-              <div className="flex space-x-6 pt-4">
-                <a href="https://github.com/areebailyas4321-lab" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#8245ec]">
+              <div className="flex space-x-6 pt-4 items-center">
+                <ThemeToggle />
+                <a href="https://github.com/areebailyas4321-lab" target="_blank" rel="noopener noreferrer" className="text-gray-700 dark:text-gray-300 hover:text-[#8245ec]">
                   <FaGithub size={28} />
                 </a>
-
+                <a href="https://www.linkedin.com/in/areeba-ilyas-3037853a7/" target="_blank" rel="noopener noreferrer" className="text-gray-700 dark:text-gray-300 hover:text-[#0077b5]">
+                  <FaLinkedin size={28} />
+                </a>
               </div>
             </ul>
           </motion.div>

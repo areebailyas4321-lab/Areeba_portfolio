@@ -1,4 +1,4 @@
-import { FaGithub, FaEnvelope } from "react-icons/fa";
+import { FaGithub, FaEnvelope, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   // Smooth scroll function
@@ -39,6 +39,7 @@ const Footer = () => {
         <div className="flex flex-wrap justify-center space-x-6 mt-8">
           {[
             { icon: <FaGithub />, link: "https://github.com/areebailyas4321-lab" },
+            { icon: <FaLinkedin />, link: "https://www.linkedin.com/in/areeba-ilyas-3037853a7/" },
             { icon: <FaEnvelope />, link: "mailto:areebailyas4321@gmail.com" },
           ].map((item, index) => (
             <a

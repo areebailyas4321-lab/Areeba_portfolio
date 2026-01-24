@@ -19,7 +19,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #050414;
+  @apply bg-white dark:bg-[#050414] text-gray-900 dark:text-white transition-colors duration-300;
   overflow-x: hidden;
 }
 

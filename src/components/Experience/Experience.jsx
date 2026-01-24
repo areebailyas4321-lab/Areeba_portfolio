@@ -16,9 +16,9 @@ const Experience = () => {
                 viewport={{ once: true }}
                 className="text-center mb-16"
             >
-                <h2 className="text-4xl font-bold text-white">EXPERIENCE</h2>
+                <h2 className="text-4xl font-bold text-gray-900 dark:text-white">EXPERIENCE</h2>
                 <div className="w-32 h-1 bg-purple-500 mx-auto mt-4 rounded-full"></div>
-                <p className="text-gray-400 mt-4 text-lg font-semibold">
+                <p className="text-gray-600 dark:text-gray-400 mt-4 text-lg font-semibold">
                     A collection of my work experience and the roles I have taken in
                     various organizations
                 </p>
@@ -27,7 +27,7 @@ const Experience = () => {
             {/* Experience Timeline */}
             <div className="relative">
                 {/* Vertical line */}
-                <div className="absolute sm:left-1/2 left-0 transform -translate-x-1/2 sm:-translate-x-0 w-1 bg-white h-full"></div>
+                <div className="absolute sm:left-1/2 left-0 transform -translate-x-1/2 sm:-translate-x-0 w-1 bg-gray-300 dark:bg-white h-full"></div>
 
                 {/* Experience Entries */}
                 {experiences.map((experience, index) => (
@@ -52,7 +52,7 @@ const Experience = () => {
                             transition={{ duration: 0.5, delay: index * 0.2 }}
                             viewport={{ once: true }}
                             whileHover={{ scale: 1.02 }}
-                            className={`w-full sm:max-w-md p-4 sm:p-8 rounded-2xl shadow-2xl border border-white bg-gray-900 backdrop-blur-md shadow-[0_0_20px_1px_rgba(130,69,236,0.3)] ${index % 2 === 0 ? "sm:mr-0" : "sm:ml-0"
+                            className={`w-full sm:max-w-md p-4 sm:p-8 rounded-2xl shadow-2xl border border-gray-200 dark:border-white bg-white dark:bg-gray-900 backdrop-blur-md shadow-[0_0_20px_1px_rgba(130,69,236,0.3)] ${index % 2 === 0 ? "sm:mr-0" : "sm:ml-0"
                                 } sm:ml-44 sm:mr-44 ml-8 transform transition-all duration-300 hover:shadow-purple-500/40 hover:border-purple-500`}
                         >
                             {/* Flex container for image and text */}
@@ -61,15 +61,15 @@ const Experience = () => {
                                 {/* Role, Company Name, and Date */}
                                 <div className="flex flex-col justify-between flex-1">
                                     <div>
-                                        <h3 className="text-xl sm:text-2xl font-semibold text-white">
+                                        <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white">
                                             {experience.role}
                                         </h3>
-                                        <h4 className="text-md sm:text-sm text-gray-300">
+                                        <h4 className="text-md sm:text-sm text-gray-600 dark:text-gray-300">
                                             {experience.company}
                                         </h4>
                                     </div>
                                     {/* Date at the bottom */}
-                                    <p className="text-sm text-gray-500 mt-2">{experience.date}</p>
+                                    <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">{experience.date}</p>
                                 </div>
 
                                 {/* Company Logo/Image - Moved to Right */}
@@ -82,9 +82,9 @@ const Experience = () => {
                                 </div>
                             </div>
 
-                            <p className="mt-4 text-gray-400">{experience.desc}</p>
+                            <p className="mt-4 text-gray-700 dark:text-gray-400">{experience.desc}</p>
                             <div className="mt-4">
-                                <h5 className="font-medium text-white">Skills:</h5>
+                                <h5 className="font-medium text-gray-900 dark:text-white">Skills:</h5>
                                 <ul className="flex flex-wrap mt-2">
                                     {experience.skills.map((skill, index) => (
                                         <li

@@ -15,6 +15,8 @@ import project2 from './assets/project image/result management system.jpeg';
 import project3 from './assets/project image/malware detection system.jpeg';
 import project4 from './assets/project image/dashboard.jpg';
 import project5 from './assets/project image/online_clock.webp';
+import project6 from './assets/project image/profile-status.jfif';
+import project7 from './assets/project image/weather.jpeg';
 
 // Project demo videos
 import video1 from './assets/project/college interface.mp4';
@@ -22,6 +24,8 @@ import video2 from './assets/project/result mangement system.mp4';
 import video3 from './assets/project/malware detection.mp4';
 import video4 from './assets/project/ecommerce dashboard.mp4';
 import video5 from './assets/project/online clock .mp4';
+import video6 from './assets/project/profile status .mp4';
+import video7 from './assets/project/weather.mp4';
 import portfolioVideo from './assets/project/portfolio_demo.mp4';
 import profileImage from './assets/profile-img.jpg';
 
@@ -167,6 +171,28 @@ export const projects = [
     tags: ["React", "Tailwind CSS", "Framer Motion"],
     github: "https://github.com/areebailyas4321-lab/portfolio_website",
     webapp: "https://areebailyas4321-lab.github.io/portfolio_website/",
+  },
+  {
+    id: 6,
+    title: "Profile Status",
+    description:
+      "A MERN stack application allowing users to switch between light and dark themes and update their profile status (Online/Offline) with a single click. Features smooth animations and a responsive design.",
+    image: project6,
+    video: video6,
+    tags: ["React", "Node.js", "MongoDB", "Framer Motion"],
+    github: "https://github.com/areebailyas4321-lab/Profile_status",
+    webapp: "https://profile-status-lv9z.vercel.app/",
+  },
+  {
+    id: 7,
+    title: "Weather App Dashboard",
+    description:
+      "A responsive weather application providing real-time updates and interactive visualizations. Built with React (Frontend) and Node.js/Express (Backend), featuring Leaflet maps for location tracking.",
+    image: project7,
+    video: video7,
+    tags: ["React", "Node.js", "Express.js", "MongoDB", "Leaflet"],
+    github: "https://github.com/areebailyas4321-lab/Weather_app_dashboard",
+    webapp: "https://weather-app-dashboard-qyw8.vercel.app/",
   },
 ];
 

@@ -3,7 +3,7 @@ import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { motion } from "framer-motion";
-import { FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { FaEnvelope, FaMapMarkerAlt, FaLinkedin } from "react-icons/fa";
 
 const Contact = () => {
   const form = useRef();
@@ -60,9 +60,9 @@ const Contact = () => {
         viewport={{ once: true }}
         className="text-center mb-16"
       >
-        <h2 className="text-4xl font-bold text-white">CONTACT</h2>
+        <h2 className="text-4xl font-bold text-gray-900 dark:text-white">CONTACT</h2>
         <div className="w-32 h-1 bg-purple-500 mx-auto mt-4 rounded-full"></div>
-        <p className="text-gray-400 mt-4 text-lg font-semibold">
+        <p className="text-gray-600 dark:text-gray-400 mt-4 text-lg font-semibold">
           I&apos;d love to hear from you—reach out for any opportunities or questions!
         </p>
       </motion.div>
@@ -76,24 +76,34 @@ const Contact = () => {
           viewport={{ once: true }}
           className="flex flex-col space-y-6 lg:w-1/4"
         >
-          <div className="bg-[#0d081f] p-6 rounded-xl border border-gray-800 shadow-lg hover:border-purple-500/50 transition-colors">
+          <div className="bg-white dark:bg-[#0d081f] p-6 rounded-xl border border-gray-200 dark:border-gray-800 shadow-lg hover:border-purple-500/50 transition-colors">
+            <a href="https://www.linkedin.com/in/areeba-ilyas-3037853a7/" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-4 mb-2 group">
+              <div className="bg-purple-500/20 p-3 rounded-full text-purple-400 group-hover:bg-[#0077b5] group-hover:text-white transition-colors">
+                <FaLinkedin size={20} />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white">LinkedIn</h3>
+            </a>
+            <p className="text-gray-600 dark:text-gray-400 pl-14 break-all text-sm">/areeba-ilyas-3037853a7</p>
+          </div>
+
+          <div className="bg-white dark:bg-[#0d081f] p-6 rounded-xl border border-gray-200 dark:border-gray-800 shadow-lg hover:border-purple-500/50 transition-colors">
             <div className="flex items-center space-x-4 mb-2">
               <div className="bg-purple-500/20 p-3 rounded-full text-purple-400">
                 <FaEnvelope size={20} />
               </div>
-              <h3 className="text-xl font-semibold text-white">Email</h3>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Email</h3>
             </div>
-            <p className="text-gray-400 pl-14">areebailyas8421@gmail.com</p>
+            <p className="text-gray-600 dark:text-gray-400 pl-14">areebailyas8421@gmail.com</p>
           </div>
 
-          <div className="bg-[#0d081f] p-6 rounded-xl border border-gray-800 shadow-lg hover:border-purple-500/50 transition-colors">
+          <div className="bg-white dark:bg-[#0d081f] p-6 rounded-xl border border-gray-200 dark:border-gray-800 shadow-lg hover:border-purple-500/50 transition-colors">
             <div className="flex items-center space-x-4 mb-2">
               <div className="bg-purple-500/20 p-3 rounded-full text-purple-400">
                 <FaMapMarkerAlt size={20} />
               </div>
-              <h3 className="text-xl font-semibold text-white">Location</h3>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Location</h3>
             </div>
-            <p className="text-gray-400 pl-14">Riastabad, Wah Cantt</p>
+            <p className="text-gray-600 dark:text-gray-400 pl-14">Riastabad, Wah Cantt</p>
           </div>
         </motion.div>
 
@@ -103,9 +113,9 @@ const Contact = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
           viewport={{ once: true }}
-          className="w-full lg:w-1/3 bg-[#0d081f] p-8 rounded-xl shadow-2xl border border-gray-800"
+          className="w-full lg:w-1/3 bg-white dark:bg-[#0d081f] p-8 rounded-xl shadow-2xl border border-gray-200 dark:border-gray-800"
         >
-          <h3 className="text-2xl font-bold text-white text-center mb-6">
+          <h3 className="text-2xl font-bold text-gray-900 dark:text-white text-center mb-6">
             Send a Message <span className="ml-1">🚀</span>
           </h3>
 
@@ -116,7 +126,7 @@ const Contact = () => {
               name="user_email"
               placeholder="Your Email"
               required
-              className="w-full p-4 rounded-lg bg-[#131025] text-white border border-gray-700 focus:outline-none transition-all"
+              className="w-full p-4 rounded-lg bg-gray-50 dark:bg-[#131025] text-gray-900 dark:text-white border border-gray-200 dark:border-gray-700 focus:outline-none transition-all"
             />
             <motion.input
               whileFocus={{ scale: 1.02, borderColor: "#8245ec" }}
@@ -124,7 +134,7 @@ const Contact = () => {
               name="user_name"
               placeholder="Your Name"
               required
-              className="w-full p-4 rounded-lg bg-[#131025] text-white border border-gray-700 focus:outline-none transition-all"
+              className="w-full p-4 rounded-lg bg-gray-50 dark:bg-[#131025] text-gray-900 dark:text-white border border-gray-200 dark:border-gray-700 focus:outline-none transition-all"
             />
             <motion.input
               whileFocus={{ scale: 1.02, borderColor: "#8245ec" }}
@@ -132,7 +142,7 @@ const Contact = () => {
               name="subject"
               placeholder="Subject"
               required
-              className="w-full p-4 rounded-lg bg-[#131025] text-white border border-gray-700 focus:outline-none transition-all"
+              className="w-full p-4 rounded-lg bg-gray-50 dark:bg-[#131025] text-gray-900 dark:text-white border border-gray-200 dark:border-gray-700 focus:outline-none transition-all"
             />
             <motion.textarea
               whileFocus={{ scale: 1.02, borderColor: "#8245ec" }}
@@ -140,7 +150,7 @@ const Contact = () => {
               placeholder="Message"
               rows="4"
               required
-              className="w-full p-4 rounded-lg bg-[#131025] text-white border border-gray-700 focus:outline-none transition-all resize-none"
+              className="w-full p-4 rounded-lg bg-gray-50 dark:bg-[#131025] text-gray-900 dark:text-white border border-gray-200 dark:border-gray-700 focus:outline-none transition-all resize-none"
             />
 
             <motion.button
@@ -162,8 +172,8 @@ const Contact = () => {
           viewport={{ once: true }}
           className="w-full lg:w-1/3"
         >
-          <div className="bg-[#0d081f] p-4 rounded-xl border border-gray-800 shadow-lg h-full">
-            <h3 className="text-2xl font-bold text-white text-center mb-4">Find Me Here</h3>
+          <div className="bg-white dark:bg-[#0d081f] p-4 rounded-xl border border-gray-200 dark:border-gray-800 shadow-lg h-full">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white text-center mb-4">Find Me Here</h3>
             <div className="rounded-lg overflow-hidden border-2 border-purple-500/30">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106360.40277227183!2d72.61299490000002!3d33.7247266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df948974419acb%3A0x984357e1632d30f!2sWah%20Cantt%2C%20Rawalpindi%2C%20Punjab%2C%20Pakistan!5e0!3m2!1sen!2s!4v1732792000000!5m2!1sen!2s"

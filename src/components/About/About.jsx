@@ -2,6 +2,7 @@ import ReactTypingEffect from 'react-typing-effect';
 import Tilt from 'react-parallax-tilt';
 import { motion } from 'framer-motion';
 import profileImage from '../../assets/profile-img.jpg';
+import { Link } from 'react-router-dom';
 
 
 const About = () => {
@@ -11,17 +12,17 @@ const About = () => {
       className="py-4 px-[7vw] md:px-[7vw] lg:px-[20vw] font-sans mt-16 md:mt-24 lg:mt-32 min-h-[80vh] flex items-center relative overflow-hidden"
     >
 
-      <div className="absolute inset-0 bg-[#050414]/60"></div>
+      <div className="absolute inset-0 bg-white/60 dark:bg-[#050414]/60"></div>
 
       <div className="relative flex flex-col gap-10 w-full">
         <div className="text-center">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 leading-tight">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-600 leading-tight">
             Areeba Ilyas
           </h2>
-          <div className="mt-4 text-xl sm:text-2xl md:text-3xl font-semibold text-white">
+          <div className="mt-4 text-xl sm:text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white">
             <ReactTypingEffect
               text={[
-                'Information Technology student (5th semester)',
+                'Full Stack & AI Enthusiast',
                 'Building real-world software solutions',
                 'Clean interfaces and practical AI',
               ]}
@@ -54,7 +55,7 @@ const About = () => {
                 <img
                   src={profileImage}
                   alt="Areeba Ilyas"
-                  className="relative w-full h-full object-cover object-[50%_30%] border-4 border-white/10 shadow-2xl"
+                  className="relative w-full h-full object-cover object-[50%_30%] border-4 border-gray-200 dark:border-white/10 shadow-2xl"
                 />
               </div>
             </Tilt>
@@ -70,9 +71,9 @@ const About = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 1 }}
-              className="text-base sm:text-lg md:text-lg text-gray-300 mb-10 leading-relaxed"
+              className="text-base sm:text-lg md:text-lg text-gray-600 dark:text-gray-300 mb-10 leading-relaxed"
             >
-              <p className="text-white">👩‍💻 About Me</p>
+              <p className="text-gray-900 dark:text-white font-bold">👩‍💻 About Me</p>
               <p className="mt-2">I am Areeba Ilyas, a dedicated Information Technology student currently in my 5th semester at Punjab University, Lahore. I specialize in full-stack web development, artificial intelligence, and data analytics, with expertise in React, Node.js, Python, and MySQL.</p>
               <p className="mt-4">Throughout my academic journey, I have developed diverse projects ranging from college management systems to AI-powered malware detection solutions. Currently, I am undergoing professional training in Full Stack Development at Capregsoft, where I am honing my skills in creating robust web applications.</p>
               <p className="mt-4">I am driven by continuous learning and excellence in software engineering, combining technical proficiency with creative problem-solving to deliver innovative solutions that address real-world challenges.</p>
@@ -83,14 +84,22 @@ const About = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.5 }}
+              className="flex flex-wrap gap-4 justify-center md:justify-start"
             >
               <a
                 href="#contact"
-                className="inline-block text-white py-3 px-8 rounded-full text-lg font-bold transition duration-300 transform hover:scale-105 hover:shadow-[0_0_20px_rgba(130,69,236,0.6)]"
+                className="inline-block text-white py-3 px-8 rounded-full text-lg font-bold transition duration-300 transform hover:scale-105 hover:shadow-[0_0_20px_rgba(130,69,236,0.6)] w-full sm:w-auto text-center"
                 style={{ background: 'linear-gradient(90deg, #8245ec, #a855f7)' }}
               >
                 Contact Me
               </a>
+              <Link
+                to="/resume"
+                className="inline-block text-white py-3 px-8 rounded-full text-lg font-bold transition duration-300 transform hover:scale-105 hover:shadow-[0_0_20px_rgba(130,69,236,0.6)] w-full sm:w-auto text-center"
+                style={{ background: 'linear-gradient(90deg, #8245ec, #a855f7)' }}
+              >
+                Resume
+              </Link>
             </motion.div>
           </motion.div>
         </div>

@@ -20,7 +20,7 @@ const ProfessionalSkillCard = ({ name, percentage }) => {
   }, [isInView, percentage, count]);
 
   return (
-    <div ref={ref} className="flex flex-col items-center justify-center bg-gray-900/50 backdrop-blur-md border border-white/10 rounded-xl py-6 px-8 mx-4 min-w-[250px] shadow-lg hover:shadow-purple-500/20 transition-all duration-300 group">
+    <div ref={ref} className="flex flex-col items-center justify-center bg-white/50 dark:bg-gray-900/50 backdrop-blur-md border border-gray-200 dark:border-white/10 rounded-xl py-6 px-8 mx-4 min-w-[250px] shadow-lg hover:shadow-purple-500/20 transition-all duration-300 group">
       <div className="relative w-24 h-24 mb-4">
         <svg className="w-full h-full transform -rotate-90">
           <circle
@@ -30,7 +30,7 @@ const ProfessionalSkillCard = ({ name, percentage }) => {
             stroke="currentColor"
             strokeWidth="8"
             fill="transparent"
-            className="text-gray-700"
+            className="text-gray-300 dark:text-gray-700"
           />
           <motion.circle
             cx="48"
@@ -48,12 +48,12 @@ const ProfessionalSkillCard = ({ name, percentage }) => {
           />
         </svg>
         <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-xl font-bold text-white">
+          <span className="text-xl font-bold text-gray-900 dark:text-white">
             <motion.span>{rounded}</motion.span>%
           </span>
         </div>
       </div>
-      <h4 className="text-lg font-medium text-gray-300 text-center group-hover:text-[#8245ec] transition-colors">
+      <h4 className="text-lg font-medium text-gray-700 dark:text-gray-300 text-center group-hover:text-[#8245ec] transition-colors">
         {name}
       </h4>
     </div>
@@ -78,9 +78,9 @@ const Skills = () => (
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <h2 className="text-3xl sm:text-4xl font-bold text-white">SKILLS</h2>
+        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">SKILLS</h2>
         <div className="w-24 h-1 bg-[#8245ec] mx-auto mt-2 rounded-full"></div>
-        <p className="text-gray-400 mt-4 text-lg font-semibold max-w-2xl mx-auto">
+        <p className="text-gray-600 dark:text-gray-400 mt-4 text-lg font-semibold max-w-2xl mx-auto">
           A collection of my technical skills and expertise honed through various projects and experiences
         </p>
       </motion.div>
@@ -95,10 +95,10 @@ const Skills = () => (
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: index * 0.2 }}
           viewport={{ once: true }}
-          className="bg-gray-900/50 backdrop-blur-md px-6 sm:px-8 py-8 mb-6 w-full sm:w-[48%] rounded-2xl border border-white/10 
+          className="bg-white/50 dark:bg-gray-900/50 backdrop-blur-md px-6 sm:px-8 py-8 mb-6 w-full sm:w-[48%] rounded-2xl border border-gray-200 dark:border-white/10 
           shadow-[0_0_20px_1px_rgba(130,69,236,0.1)] hover:shadow-[0_0_30px_1px_rgba(130,69,236,0.3)] transition-shadow duration-300"
         >
-          <h3 className="text-2xl sm:text-3xl font-semibold text-gray-200 mb-6 text-center">
+          <h3 className="text-2xl sm:text-3xl font-semibold text-gray-800 dark:text-gray-200 mb-6 text-center">
             {category.title}
           </h3>
 
@@ -116,14 +116,14 @@ const Skills = () => (
                 <motion.div
                   key={skill.name}
                   whileHover={{ scale: 1.1, backgroundColor: "rgba(130, 69, 236, 0.2)" }}
-                  className="flex flex-col items-center justify-center space-y-2 bg-white/5 border border-white/10 rounded-xl py-4 px-2 text-center transition-colors"
+                  className="flex flex-col items-center justify-center space-y-2 bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl py-4 px-2 text-center transition-colors"
                 >
                   <img
                     src={skill.logo}
                     alt={`${skill.name} logo`}
                     className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
                   />
-                  <span className="text-xs sm:text-sm text-gray-300 font-medium">
+                  <span className="text-xs sm:text-sm text-gray-700 dark:text-gray-300 font-medium">
                     {skill.name}
                   </span>
                 </motion.div>
@@ -136,10 +136,10 @@ const Skills = () => (
 
     {/* Professional Skills Marquee */}
     <div className="w-full overflow-hidden py-10 mt-10 relative">
-      <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-[#050414] to-transparent z-10"></div>
-      <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[#050414] to-transparent z-10"></div>
+      <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white dark:from-[#050414] to-transparent z-10"></div>
+      <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white dark:from-[#050414] to-transparent z-10"></div>
 
-      <h3 className="text-2xl sm:text-3xl font-semibold text-gray-200 mb-8 text-center">
+      <h3 className="text-2xl sm:text-3xl font-semibold text-gray-800 dark:text-gray-200 mb-8 text-center">
         Professional Skills
       </h3>
 

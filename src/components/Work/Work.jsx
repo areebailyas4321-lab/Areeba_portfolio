@@ -338,7 +338,7 @@ const Work = () => {
                     hideColorLegend={false}
                     hideTotalCount={false}
                     theme={{
-                      dark: ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"],
+                      dark: ["#161b22", "#6366f1", "#8b5cf6", "#a855f7", "#d8b4fe"],
                       light: ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"],
                     }}
                   />
@@ -354,7 +354,7 @@ const Work = () => {
               className="rounded-xl overflow-hidden border border-gray-200 dark:border-white/10 shadow-lg bg-[#0d081f] dark:bg-[#0d081f]"
             >
               <img
-                src={`https://github-readme-stats.vercel.app/api?username=areebailyas4321-lab&show_icons=true&theme=react&hide_border=true&bg_color=ffffff&title_color=8b5cf6&icon_color=a855f7&text_color=000000`}
+                src={`https://github-readme-stats.vercel.app/api?username=areebailyas4321-lab&show_icons=true&theme=${theme === 'dark' ? 'dark' : 'react'}&hide_border=true&bg_color=${theme === 'dark' ? '0d081f' : 'ffffff'}&title_color=8b5cf6&icon_color=a855f7&text_color=${theme === 'dark' ? 'ffffff' : '000000'}`}
                 alt="GitHub Stats"
                 className="h-[165px] w-auto object-contain"
               />
@@ -364,7 +364,7 @@ const Work = () => {
               className="rounded-xl overflow-hidden border border-gray-200 dark:border-white/10 shadow-lg bg-[#0d081f] dark:bg-[#0d081f]"
             >
               <img
-                src={`https://streak-stats.demolab.com/?user=areebailyas4321-lab&theme=react&hide_border=true&background=ffffff&ring=8b5cf6&fire=ff0000&currStreakNum=000000`}
+                src={`https://streak-stats.demolab.com/?user=areebailyas4321-lab&theme=${theme === 'dark' ? 'dark' : 'react'}&hide_border=true&background=${theme === 'dark' ? '0d081f' : 'ffffff'}&ring=8b5cf6&fire=ff0000&currStreakNum=${theme === 'dark' ? 'ffffff' : '000000'}`}
                 alt="GitHub Streak"
                 className="h-[165px] w-auto object-contain"
               />
@@ -374,7 +374,7 @@ const Work = () => {
               className="rounded-xl overflow-hidden border border-gray-200 dark:border-white/10 shadow-lg bg-[#0d081f] dark:bg-[#0d081f]"
             >
               <img
-                src={`https://github-readme-stats.vercel.app/api/top-langs/?username=areebailyas4321-lab&layout=compact&theme=react&hide_border=true&bg_color=ffffff&title_color=8b5cf6&text_color=000000`}
+                src={`https://github-readme-stats.vercel.app/api/top-langs/?username=areebailyas4321-lab&layout=compact&theme=${theme === 'dark' ? 'dark' : 'react'}&hide_border=true&bg_color=${theme === 'dark' ? '0d081f' : 'ffffff'}&title_color=8b5cf6&text_color=${theme === 'dark' ? 'ffffff' : '000000'}`}
                 alt="Top Languages"
                 className="h-[165px] w-auto object-contain"
               />

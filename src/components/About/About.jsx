@@ -37,7 +37,8 @@ const About = () => {
         <div className="flex flex-col md:flex-row items-center md:items-start justify-between w-full">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="md:w-1/2 flex justify-start"
           >
@@ -63,26 +64,28 @@ const About = () => {
 
           <motion.div
             initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="md:w-1/2 text-left mt-8 md:mt-0"
           >
             <motion.div
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, amount: 0.2 }}
               transition={{ delay: 0.5, duration: 1 }}
               className="text-base sm:text-lg md:text-lg text-gray-600 dark:text-gray-300 mb-10 leading-relaxed"
             >
               <p className="text-gray-900 dark:text-white font-bold">👩‍💻 About Me</p>
-              <p className="mt-2">I am Areeba Ilyas, a dedicated Information Technology student currently in my 5th semester at Punjab University, Lahore. I specialize in full-stack web development, artificial intelligence, and data analytics, with expertise in React, Node.js, Python, and MySQL.</p>
-              <p className="mt-4">Throughout my academic journey, I have developed diverse projects ranging from college management systems to AI-powered malware detection solutions. Currently, I am undergoing professional training in Full Stack Development at Capregsoft, where I am honing my skills in creating robust web applications.</p>
-              <p className="mt-4">I am driven by continuous learning and excellence in software engineering, combining technical proficiency with creative problem-solving to deliver innovative solutions that address real-world challenges.</p>
+              <p className="mt-2">I am a passionate Full Stack Developer with experience in building modern, responsive, and scalable web applications. I work with technologies like React, Node.js, Python, and MySQL to create complete end-to-end solutions.</p>
+              <p className="mt-4">I enjoy turning ideas into real-world products, focusing on clean UI, strong backend logic, and smooth user experience. I am continuously learning new technologies to improve my skills and stay updated with modern development practices.</p>
               <p className="mt-4">📫 Email:  areebailyas4321@gmail.com<br />🔗 GitHub:  github.com/areebailyas4321-lab</p>
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
               transition={{ delay: 0.8, duration: 0.5 }}
               className="flex flex-wrap gap-4 justify-center md:justify-start"
             >

@@ -78,60 +78,37 @@ const Skills = () => (
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">SKILLS</h2>
-        <div className="w-24 h-1 bg-[#8245ec] mx-auto mt-2 rounded-full"></div>
+        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">MY SKILLS</h2>
+        <div className="w-40 h-1 bg-[#8245ec] mx-auto mt-2 rounded-full"></div>
         <p className="text-gray-600 dark:text-gray-400 mt-4 text-lg font-semibold max-w-2xl mx-auto">
           A collection of my technical skills and expertise honed through various projects and experiences
         </p>
       </motion.div>
     </div>
 
-    {/* Skill Categories */}
-    <div className="flex flex-wrap gap-6 lg:gap-8 py-4 justify-center">
-      {SkillsInfo.map((category, index) => (
-        <motion.div
-          key={category.title}
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: index * 0.2 }}
-          viewport={{ once: true }}
-          className="bg-white/50 dark:bg-gray-900/50 backdrop-blur-md px-6 sm:px-8 py-8 mb-6 w-full sm:w-[48%] rounded-2xl border border-gray-200 dark:border-white/10 
-          shadow-[0_0_20px_1px_rgba(130,69,236,0.1)] hover:shadow-[0_0_30px_1px_rgba(130,69,236,0.3)] transition-shadow duration-300"
-        >
-          <h3 className="text-2xl sm:text-3xl font-semibold text-gray-800 dark:text-gray-200 mb-6 text-center">
-            {category.title}
-          </h3>
+    {/* Technical Skills Marquee */}
+    <div className="w-full overflow-hidden py-10 relative">
+      <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white dark:from-[#050414] to-transparent z-10 pointer-events-none"></div>
+      <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white dark:from-[#050414] to-transparent z-10 pointer-events-none"></div>
 
-          {/* Skill Items - 3 per row on larger screens */}
-          <Tilt
-            tiltMaxAngleX={10}
-            tiltMaxAngleY={10}
-            perspective={1000}
-            scale={1.02}
-            transitionSpeed={1000}
-            gyroscope={true}
+      <div className="flex w-max animate-marquee pause-on-hover gap-6 sm:gap-8 group">
+        {[...SkillsInfo.flatMap(c => c.skills), ...SkillsInfo.flatMap(c => c.skills)].map((skill, index) => (
+          <motion.div
+            key={`${skill.name}-${index}`}
+            whileHover={{ scale: 1.1, backgroundColor: "rgba(130, 69, 236, 0.2)" }}
+            className="flex flex-col items-center justify-center space-y-4 bg-white/50 dark:bg-gray-900/50 backdrop-blur-md border border-gray-200 dark:border-white/10 rounded-2xl py-6 px-4 w-36 sm:w-44 lg:w-48 shadow-[0_0_20px_1px_rgba(130,69,236,0.1)] hover:shadow-[0_0_30px_1px_rgba(130,69,236,0.5)] transition-all duration-300"
           >
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 w-full">
-              {category.skills.map((skill) => (
-                <motion.div
-                  key={skill.name}
-                  whileHover={{ scale: 1.1, backgroundColor: "rgba(130, 69, 236, 0.2)" }}
-                  className="flex flex-col items-center justify-center space-y-2 bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl py-4 px-2 text-center transition-colors"
-                >
-                  <img
-                    src={skill.logo}
-                    alt={`${skill.name} logo`}
-                    className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
-                  />
-                  <span className="text-xs sm:text-sm text-gray-700 dark:text-gray-300 font-medium">
-                    {skill.name}
-                  </span>
-                </motion.div>
-              ))}
-            </div>
-          </Tilt>
-        </motion.div>
-      ))}
+            <img
+              src={skill.logo}
+              alt={`${skill.name} logo`}
+              className="w-14 h-14 sm:w-20 sm:h-20 object-contain drop-shadow-lg"
+            />
+            <span className="text-sm sm:text-base text-gray-800 dark:text-gray-200 font-bold text-center tracking-wide">
+              {skill.name}
+            </span>
+          </motion.div>
+        ))}
+      </div>
     </div>
 
     {/* Professional Skills Marquee */}
